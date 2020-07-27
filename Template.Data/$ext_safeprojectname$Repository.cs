@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace Template.Data
+namespace $ext_safeprojectname$.Data
 {
-    public class TemplateRepository : ITemplateRepository
+    public class $ext_safeprojectname$Repository : I$ext_safeprojectname$Repository
     {
         public List<string> GetAll()
         {

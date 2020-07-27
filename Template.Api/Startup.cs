@@ -7,10 +7,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Template.Data;
-using Template.Service;
+using $ext_safeprojectname$.Data;
+using $ext_safeprojectname$.Service;
 
-namespace Template.Api
+namespace $ext_safeprojectname$.Api
 {
     public class Startup
     {
@@ -31,8 +31,8 @@ namespace Template.Api
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "Template API",
-                    Description = "An Api for template operations",
+                    Title = "$ext_safeprojectname$ API",
+                    Description = "An Api for $ext_safeprojectname$ operations",
                     Contact = new OpenApiContact
                     {
                         Name = "Wolfgang Ofner",
@@ -46,8 +46,8 @@ namespace Template.Api
                 c.IncludeXmlComments(xmlPath);
             });
 
-            services.AddTransient<ITemplateRepository, TemplateRepository>();
-            services.AddTransient<ITemplateService, TemplateService>();
+            services.AddTransient<I$ext_safeprojectname$Repository, $ext_safeprojectname$Repository>();
+            services.AddTransient<I$ext_safeprojectname$Service, $ext_safeprojectname$Service>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -63,7 +63,7 @@ namespace Template.Api
 
             app.UseSwagger();
             app.UseSwaggerUI(c => {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Template API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "$ext_safeprojectname$ API V1");
                 c.RoutePrefix = string.Empty;
             });
 
